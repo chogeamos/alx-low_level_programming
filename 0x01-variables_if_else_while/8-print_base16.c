@@ -6,20 +6,17 @@
  * This program prints "Programming is positive, zero, or negative
  * Return: 0
  */
-int main() 
+int main(void)
 {
-    int num = 0;
-    while (num < 10) 
-    {
-        putchar(num + '0');
-        num++;
-    }
-    num = 10;
-    while (num < 16) 
-    {
-        putchar(num + 'a' - 10);
-        num++;
-    }
-    putchar('\n');
-    return 0;
+char c;
+for (c = '0'; c <= '9'; c++)
+{
+	putchar(c);
+}
+for (c = 'a'; c <= 'f'; c++)
+{
+	putchar(c);
+}
+putchar('\n');
+return (0);
 }

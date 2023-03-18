@@ -6,17 +6,17 @@
  * This program prints "Programming is positive, zero, or negative
  * Return: 0
  */
-int main() 
+int main(void)
 {
-    char letter = 'a';
-    while (letter <= 'z') 
-    {
-        if (letter != 'e' && letter != 'q') 
-	{
-            putchar(letter);
-        }
-        letter++;
-    }
-    putchar('\n');
-    return 0;
+char ch;
+for (ch = 'a' ; ch <= 'z' ; ch++)
+{
+if (ch != 'e' && ch != 'q')
+{
+	putchar(ch);
 }
+}
+putchar('\n');
+return (0);
+}
+

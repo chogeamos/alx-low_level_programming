@@ -6,14 +6,13 @@
 * this program prints "Programming is positive, zero, or negative
 * Return: 0
 */
-int main() 
+int main(void)
 {
-    char letter = 'a';
-    while (letter <= 'z') 
-    {
-        putchar(letter);
-        letter++;
-    }
-    putchar('\n');
-    return 0;
+char ch;
+for (ch = 'a' ; ch <= 'z' ; ch++)
+{
+	putchar(ch);
+}
+putchar('\n');
+return (0);
 }
