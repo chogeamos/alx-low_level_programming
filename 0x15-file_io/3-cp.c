@@ -6,10 +6,10 @@ char *create_buffer(char *file);
 void close_file(int fd);
 
 /**
- * create_buffer - Allocates memory for a buffer.
- * @file: The name of the file for which the buffer is created.
+ * create_buffer - Allocates 1024 bytes for a buffer.
+ * @file: The name of the file buffer is storing chars for.
  *
- * Return: A pointer to the newly allocated buffer.
+ * Return: A pointer to the newly-allocated buffer.
  */
 char *create_buffer(char *file)
 {
@@ -20,7 +20,7 @@ char *create_buffer(char *file)
 	if (buffer == NULL)
 	{
 		dprintf(STDERR_FILENO,
-			"Error: Unable to allocate memory for %s\n", file);
+			"Error: Can't write to %s\n", file);
 		exit(99);
 	}
 
@@ -39,7 +39,7 @@ void close_file(int fd)
 
 	if (c == -1)
 	{
-		dprintf(STDERR_FILENO, "Error: Unable to close fd %d\n", fd);
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd);
 		exit(100);
 	}
 }
@@ -51,10 +51,10 @@ void close_file(int fd)
  *
  * Return: 0 on success.
  *
- * Description: If the argument count is incorrect, exit with code 97.
- *              If file_from does not exist or cannot be read, exit with code 98.
- *              If file_to cannot be created or written to, exit with code 99.
- *              If file_to or file_from cannot be closed, exit with code 100.
+ * Description: If the argument count is incorrect - exit code 97.
+ *              If file_from does not exist or cannot be read - exit code 98.
+ *              If file_to cannot be created or written to - exit code 99.
+ *              If file_to or file_from cannot be closed - exit code 100.
  */
 int main(int argc, char *argv[])
 {
@@ -76,7 +76,7 @@ int main(int argc, char *argv[])
 		if (from == -1 || r == -1)
 		{
 			dprintf(STDERR_FILENO,
-				"Error: Unable to read from file %s\n", argv[1]);
+				"Error: Can't read from file %s\n", argv[1]);
 			free(buffer);
 			exit(98);
 		}
@@ -85,7 +85,7 @@ int main(int argc, char *argv[])
 		if (to == -1 || w == -1)
 		{
 			dprintf(STDERR_FILENO,
-				"Error: Unable to write to %s\n", argv[2]);
+				"Error: Can't write to %s\n", argv[2]);
 			free(buffer);
 			exit(99);
 		}
@@ -101,4 +101,3 @@ int main(int argc, char *argv[])
 
 	return (0);
 }
-
